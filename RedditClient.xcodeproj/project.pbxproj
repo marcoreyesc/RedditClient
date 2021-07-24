@@ -13,7 +13,7 @@
 		0C3361F926AC85AF00BD572A /* RedditClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3361F826AC85AF00BD572A /* RedditClientTests.swift */; };
 		0C33623426AC8EA700BD572A /* RedditDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C33623326AC8EA700BD572A /* RedditDataSource.swift */; };
 		0C33623A26AC918400BD572A /* RedditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C33623926AC918400BD572A /* RedditItem.swift */; };
-		0CF4F48626AC958E002D68B9 /* RedditDataSoruceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C33622426AC8BA400BD572A /* RedditDataSoruceTests.swift */; };
+		0CF4F48626AC958E002D68B9 /* RedditDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C33622426AC8BA400BD572A /* RedditDataSourceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +35,7 @@
 		0C3361F426AC85AF00BD572A /* RedditClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedditClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C3361F826AC85AF00BD572A /* RedditClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditClientTests.swift; sourceTree = "<group>"; };
 		0C3361FA26AC85AF00BD572A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0C33622426AC8BA400BD572A /* RedditDataSoruceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditDataSoruceTests.swift; sourceTree = "<group>"; };
+		0C33622426AC8BA400BD572A /* RedditDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditDataSourceTests.swift; sourceTree = "<group>"; };
 		0C33623326AC8EA700BD572A /* RedditDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditDataSource.swift; sourceTree = "<group>"; };
 		0C33623926AC918400BD572A /* RedditItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,7 +102,7 @@
 		0C33622326AC8B7000BD572A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				0C33622426AC8BA400BD572A /* RedditDataSoruceTests.swift */,
+				0C33622426AC8BA400BD572A /* RedditDataSourceTests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -232,7 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CF4F48626AC958E002D68B9 /* RedditDataSoruceTests.swift in Sources */,
+				0CF4F48626AC958E002D68B9 /* RedditDataSourceTests.swift in Sources */,
 				0C3361F926AC85AF00BD572A /* RedditClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

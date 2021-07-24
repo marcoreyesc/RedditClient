@@ -9,5 +9,9 @@ import Foundation
 
 
 struct RedditItem: Codable {
-    
+    var created: Double
+    var author: String
+    var title: String
+    var numComments: Int
+    var thumbnail: String
 }

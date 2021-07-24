@@ -8,7 +8,7 @@
 import Foundation
 
 enum Result {
-    case success(tiems: [RedditItem])
+    case success(items: [RedditItem])
     case failure(error: Error)
 }
 
