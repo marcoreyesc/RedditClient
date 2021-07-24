@@ -16,8 +16,7 @@ typealias Callback = (Result) -> Void
 
 final class RedditDataSource {
 
-
-    func getItems(completion: Callback) {
+    var itemsFromService: (_ completion: Callback) -> Void = { (completion: Callback) in
 
     }
 }

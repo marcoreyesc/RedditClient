@@ -12,11 +12,17 @@ class RedditDataSoruceTests: XCTestCase {
 
     var redditDataSoruce = RedditDataSource()
 
+    override func setUpWithError() throws {
+        redditDataSoruce.itemsFromService = { (completion: Callback) in
+            completion(.success(tiems: []))
+        }
+    }
+
     func testGetItems() throws {
         let expectation = self.expectation(description: "item list")
 
         var itemList: [RedditItem]?
-        redditDataSoruce.getItems() { result in
+        redditDataSoruce.itemsFromService { result in
             switch result {
             case .success(let tiems):
                 itemList = tiems
