@@ -9,10 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C3361E226AC85AB00BD572A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3361E126AC85AB00BD572A /* AppDelegate.swift */; };
 		0C3361E426AC85AB00BD572A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3361E326AC85AB00BD572A /* SceneDelegate.swift */; };
-		0C3361E626AC85AB00BD572A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3361E526AC85AB00BD572A /* ViewController.swift */; };
-		0C3361E926AC85AB00BD572A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C3361E726AC85AB00BD572A /* Main.storyboard */; };
 		0C3361EB26AC85AF00BD572A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C3361EA26AC85AF00BD572A /* Assets.xcassets */; };
-		0C3361EE26AC85AF00BD572A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C3361EC26AC85AF00BD572A /* LaunchScreen.storyboard */; };
 		0C3361F926AC85AF00BD572A /* RedditClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3361F826AC85AF00BD572A /* RedditClientTests.swift */; };
 		0C33620426AC85AF00BD572A /* RedditClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C33620326AC85AF00BD572A /* RedditClientUITests.swift */; };
 /* End PBXBuildFile section */
@@ -38,10 +35,7 @@
 		0C3361DE26AC85AB00BD572A /* RedditClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C3361E126AC85AB00BD572A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C3361E326AC85AB00BD572A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0C3361E526AC85AB00BD572A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0C3361E826AC85AB00BD572A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0C3361EA26AC85AF00BD572A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0C3361ED26AC85AF00BD572A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C3361EF26AC85AF00BD572A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C3361F426AC85AF00BD572A /* RedditClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedditClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C3361F826AC85AF00BD572A /* RedditClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditClientTests.swift; sourceTree = "<group>"; };
@@ -101,10 +95,7 @@
 			children = (
 				0C3361E126AC85AB00BD572A /* AppDelegate.swift */,
 				0C3361E326AC85AB00BD572A /* SceneDelegate.swift */,
-				0C3361E526AC85AB00BD572A /* ViewController.swift */,
-				0C3361E726AC85AB00BD572A /* Main.storyboard */,
 				0C3361EA26AC85AF00BD572A /* Assets.xcassets */,
-				0C3361EC26AC85AF00BD572A /* LaunchScreen.storyboard */,
 				0C3361EF26AC85AF00BD572A /* Info.plist */,
 			);
 			path = RedditClient;
@@ -231,9 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C3361EE26AC85AF00BD572A /* LaunchScreen.storyboard in Resources */,
 				0C3361EB26AC85AF00BD572A /* Assets.xcassets in Resources */,
-				0C3361E926AC85AB00BD572A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +247,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C3361E626AC85AB00BD572A /* ViewController.swift in Sources */,
 				0C3361E226AC85AB00BD572A /* AppDelegate.swift in Sources */,
 				0C3361E426AC85AB00BD572A /* SceneDelegate.swift in Sources */,
 			);
@@ -294,25 +282,6 @@
 			targetProxy = 0C33620026AC85AF00BD572A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		0C3361E726AC85AB00BD572A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0C3361E826AC85AB00BD572A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0C3361EC26AC85AF00BD572A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0C3361ED26AC85AF00BD572A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0C33620626AC85AF00BD572A /* Debug */ = {
