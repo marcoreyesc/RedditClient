@@ -6,7 +6,7 @@
 //
 
 import XCTest
-
+@testable import RedditClient
 
 class RedditDataSoruceTests: XCTestCase {
 
@@ -15,7 +15,16 @@ class RedditDataSoruceTests: XCTestCase {
     func testGetItems() throws {
         let expectation = self.expectation(description: "item list")
 
-        let itemList = redditDataSoruce.getItems() {
+        var itemList: [RedditItem]?
+        redditDataSoruce.getItems() { result in
+            switch result {
+            case .success(let tiems):
+                itemList = tiems
+            case .failure:
+                itemList = nil
+            }
+
+//            items = result.
             expectation.fulfill()
         }
         waitForExpectations(timeout: 3)
