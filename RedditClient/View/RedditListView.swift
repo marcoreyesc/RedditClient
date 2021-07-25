@@ -9,12 +9,14 @@ import UIKit
 
 class RedditListView: UIView {
     var tableView: UITableView
+    let refreshControl = UIRefreshControl() // test making this weak
 
-    init (frame: CGRect, dataSource: UITableViewDataSource) {
+    init (frame: CGRect, dataSource: UITableViewDataSource, refreshControl: UIRefreshControl) {
         tableView = UITableView()
         super.init(frame: frame)
         tableView.register(RedditItemCell.self, forCellReuseIdentifier: RedditItemCell.reuseID)
         tableView.dataSource = dataSource
+        tableView.refreshControl = refreshControl
         setupView()
     }
 
