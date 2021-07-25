@@ -34,7 +34,7 @@ final class RedditDataSource {
             return
         }
 
-        urlComponents.query = "limit=1"
+        urlComponents.query = "limit=2"
 
         guard let url = urlComponents.url else {
             return
