@@ -24,6 +24,14 @@ final class RedditDataSource {
 
     var dataTask: URLSessionDataTask?
     let defaultSession = URLSession(configuration: .default)
+    let limit = 2
+
+    //making an option paginator to allaw us requests without page requeriment
+    private let paginator: Paginator?
+
+    init(paginator: Paginator? = Paginator()) {
+        self.paginator = paginator
+    }
 
     lazy var itemsFromService: (_ completion: @escaping Callback) -> Void = { [weak self] (completion: @escaping Callback) in
         guard let self = self else {
@@ -34,8 +42,7 @@ final class RedditDataSource {
             return
         }
 
-        urlComponents.query = "limit=2"
-
+        urlComponents.query = "limit=\(self.limit)\(self.paginator?.query ?? "")"
         guard let url = urlComponents.url else {
             return
         }
@@ -55,9 +62,10 @@ final class RedditDataSource {
                 return
             }
 
+            self?.paginator?.after = redditRoot.data.after
+            self?.paginator?.before = redditRoot.data.before
             DispatchQueue.main.async {
                 completion(.success(items: redditRoot))
-
             }
         }
 

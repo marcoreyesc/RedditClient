@@ -19,6 +19,7 @@
 		0CF4F4AA26ADA661002D68B9 /* RedditItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4F4A926ADA661002D68B9 /* RedditItemCell.swift */; };
 		0CF4F4AF26ADAE15002D68B9 /* RedditLitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4F4AE26ADAE15002D68B9 /* RedditLitViewController.swift */; };
 		0CF4F4B526ADBF88002D68B9 /* RedditListTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4F4B426ADBF88002D68B9 /* RedditListTableViewDataSource.swift */; };
+		0CF4F4B926AE1FC6002D68B9 /* Paginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4F4B826AE1FC6002D68B9 /* Paginator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		0CF4F4A926ADA661002D68B9 /* RedditItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditItemCell.swift; sourceTree = "<group>"; };
 		0CF4F4AE26ADAE15002D68B9 /* RedditLitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditLitViewController.swift; sourceTree = "<group>"; };
 		0CF4F4B426ADBF88002D68B9 /* RedditListTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditListTableViewDataSource.swift; sourceTree = "<group>"; };
+		0CF4F4B826AE1FC6002D68B9 /* Paginator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				0C33623326AC8EA700BD572A /* RedditDataSource.swift */,
+				0CF4F4B826AE1FC6002D68B9 /* Paginator.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 			files = (
 				0CF4F4AF26ADAE15002D68B9 /* RedditLitViewController.swift in Sources */,
 				0CF4F4AA26ADA661002D68B9 /* RedditItemCell.swift in Sources */,
+				0CF4F4B926AE1FC6002D68B9 /* Paginator.swift in Sources */,
 				0CF4F4A626ADA3C1002D68B9 /* RedditListView.swift in Sources */,
 				0C3361E226AC85AB00BD572A /* AppDelegate.swift in Sources */,
 				0CF4F4B526ADBF88002D68B9 /* RedditListTableViewDataSource.swift in Sources */,
