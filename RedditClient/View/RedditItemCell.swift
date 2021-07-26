@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol RedditItemCellDelegate: class {
+    func didPressDeleteButton(sender: RedditItemCell)
+}
+
 final class RedditItemCell: UITableViewCell {
     let createdLabel: UILabel = UILabel.defaultLabel(size: FontSize.big)
 
@@ -36,13 +40,20 @@ final class RedditItemCell: UITableViewCell {
         return thumbnailView
     }()
 
-    let deleteButton: UIButton = {
+    lazy var deleteButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.red, for: .normal)
         button.setTitle("Dismiss Post", for: .normal)
         button.setImage(.remove, for: .normal)
+        button.addTarget(self, action: #selector(didPressDeleteButton), for: .touchUpInside)
         return button
     }()
+
+    weak var delegate: RedditItemCellDelegate?
+
+    @objc func didPressDeleteButton() {
+        delegate?.didPressDeleteButton(sender: self)
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -94,5 +105,11 @@ final class RedditItemCell: UITableViewCell {
     static var reuseID: String {
         return String(describing: self)
     }
-}
 
+    override func prepareForReuse() {
+        createdLabel.text = nil
+        authorLabel.text = nil
+        titleLabel.text = nil
+        thumbnailView.image = nil
+    }
+}

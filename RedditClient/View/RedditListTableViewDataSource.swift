@@ -12,9 +12,12 @@ final class RedditListTableViewDataSource: NSObject, UITableViewDataSource {
 
     var remoteDataSource = RedditDataSource()
 
+    var removingItem = false
     private var redditChildDataList: [RedditChild] = [] {
         didSet {
-            redditListView?.reload()
+            if !removingItem {
+                redditListView?.reload()
+            }
         }
     }
 
@@ -35,6 +38,7 @@ final class RedditListTableViewDataSource: NSObject, UITableViewDataSource {
         downLoadImage(tableView,
                       url: redditChildDataList[indexPath.row].data.thumbnail,
                       inIndexPath: indexPath)
+        cell.delegate = self
         return cell
     }
 
@@ -63,3 +67,14 @@ final class RedditListTableViewDataSource: NSObject, UITableViewDataSource {
     }
 }
 
+extension RedditListTableViewDataSource: RedditItemCellDelegate {
+    func didPressDeleteButton(sender: RedditItemCell) {
+        guard let indexPath = redditListView?.indexPathOfButton(sender.deleteButton) else {
+            return
+        }
+        removingItem = true
+        redditChildDataList.remove(at: indexPath.row)
+        removingItem = false
+        redditListView?.removeCell(ofButton: sender.deleteButton)
+    }
+}

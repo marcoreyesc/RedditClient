@@ -42,4 +42,18 @@ class RedditListView: UIView {
     func reload() {
         tableView.reloadData()
     }
+
+    func indexPathOfButton(_ button: UIButton) -> IndexPath? {
+        let point = button.convert(CGPoint.zero, to: tableView)
+        guard let indexPath = tableView.indexPathForRow(at: point) else { return nil }
+        return indexPath
+    }
+
+    func removeCell(ofButton button: UIButton) {
+        guard let indexPath = indexPathOfButton(button) else {return}
+        
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [IndexPath(row: indexPath.row, section: 0)], with: .left)
+        tableView.endUpdates()
+    }
 }
