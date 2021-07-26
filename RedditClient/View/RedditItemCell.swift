@@ -9,29 +9,21 @@ import UIKit
 
 final class RedditItemCell: UITableViewCell {
     let createdLabel: UILabel = {
-        let label = UILabel()
-        label.font = label.font.withSize(14)
-        return label
+        return UILabel.defaultLabel(size: FontSize.big)
     }()
 
     let authorLabel: UILabel = {
-        let label = UILabel()
-        label.font = label.font.withSize(16)
-        return label
+        return UILabel.defaultLabel(size: FontSize.big)
     }()
     let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = label.font.withSize(16)
-        return label
+        return UILabel.defaultLabel(size: FontSize.medium)
     }()
     let numCommentsLabel: UILabel = {
-        let label = UILabel()
-        label.font = label.font.withSize(14)
-        return label
+        return UILabel.defaultLabel(size: FontSize.medium)
     }()
 
     lazy var dotView: UIView = {
-        let dotView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        let dotView = UIView(frame: .zero)
         dotView.layer.cornerRadius = 5;
         dotView.layer.masksToBounds = true;
         dotView.backgroundColor = .blue
@@ -55,23 +47,23 @@ final class RedditItemCell: UITableViewCell {
 
     func setupView() {
         let topHorizontalStackView = UIStackView(arrangedSubviews: [dotView, authorLabel, createdLabel])
-        topHorizontalStackView.spacing = 8
+        topHorizontalStackView.spacing = ViewSpace.medium
         topHorizontalStackView.alignment = .top
 
         let centerHorizontalStackView = UIStackView(arrangedSubviews: [thumbnailView, titleLabel])
-        centerHorizontalStackView.spacing = 8
+        centerHorizontalStackView.spacing = ViewSpace.medium
 
         let stack = UIStackView(arrangedSubviews: [topHorizontalStackView, centerHorizontalStackView, numCommentsLabel])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .leading
-        stack.spacing = 16
+        stack.spacing = ViewSpace.big
 
         contentView.addSubview(stack)
         NSLayoutConstraint.activate(
             stack.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor,
                          bottom: nil, trailing: contentView.trailingAnchor,
-                         padding: UIEdgeInsets(top: 16, left: 8, bottom: 0, right: 8))
+                         padding: UIEdgeInsets(top: ViewSpace.big, left: ViewSpace.medium, bottom: 0, right: ViewSpace.medium))
         )
         NSLayoutConstraint.activate(dotView.setSize(CGSize(width: 10, height: 10)))
         NSLayoutConstraint.activate(thumbnailView.setSize(CGSize(width: 64, height: 64)))
