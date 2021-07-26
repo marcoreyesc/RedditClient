@@ -10,6 +10,8 @@ import UIKit
 final class RedditListTableViewDataSource: NSObject, UITableViewDataSource {
     weak var redditListView: RedditListView?
 
+    var remoteDataSource = RedditDataSource()
+
     private var redditChildDataList: [RedditChild] = [] {
         didSet {
             redditListView?.reload()
@@ -30,7 +32,34 @@ final class RedditListTableViewDataSource: NSObject, UITableViewDataSource {
         }
 
         cell.config(redditChildData: redditChildDataList[indexPath.row].data)
+        downLoadImage(tableView,
+                      url: redditChildDataList[indexPath.row].data.thumbnail,
+                      inIndexPath: indexPath)
         return cell
+    }
+
+    // TODO: - Change default Images from view did load
+    // TODO: - Add some cache system for images
+    func downLoadImage(_ tableView: UITableView, url: String, inIndexPath indexPath: IndexPath) {
+        remoteDataSource.imageFromService(url) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let image):
+                self.displayImage(tableView, image: image, indexPath: indexPath)
+            case .failure:
+                self.displayImage(tableView, image: UIImage.add, indexPath: indexPath)
+            }
+        }
+    }
+
+    func displayImage(_ tableView: UITableView, image: UIImage?, indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            if let cell = tableView.cellForRow(at: indexPath) as? RedditItemCell {
+                cell.displayImage(image)
+            }
+        }
     }
 }
 

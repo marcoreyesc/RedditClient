@@ -6,23 +6,13 @@
 //
 
 import Foundation
-
-enum Result {
-    case success(items: RedditRoot)
-    case failure(error: Error?)
-}
-
-enum NetworkError: Error {
-    case deserializationError
-    case dataIsNil
-    case modelClassNotAvailable
-}
-
-typealias Callback = (Result) -> Void
+import UIKit
 
 final class RedditDataSource {
 
     var dataTask: URLSessionDataTask?
+    var downaloadDataTask: URLSessionDownloadTask?
+
     let defaultSession = URLSession(configuration: .default)
     let limit = 2
 
@@ -47,7 +37,7 @@ final class RedditDataSource {
             return
         }
 
-        self.dataTask = self.defaultSession.RedditListTask(with: url) { [weak self] (redditRoot, response, error) in
+        self.dataTask = self.defaultSession.redditListTask(with: url) { [weak self] (redditRoot, response, error) in
             defer {
                 self?.dataTask = nil
             }
@@ -71,30 +61,30 @@ final class RedditDataSource {
 
         self.dataTask?.resume()
     }
-}
 
-extension URLSession {
-    fileprivate func codableTask<T: Codable>(with url: URL, completionHandler: @escaping (T?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        return self.dataTask(with: url) { data, response, error in
-            guard error == nil else {
-                completionHandler(nil, response, error)
-                return
-            }
-            guard let data = data else {
-                completionHandler(nil, response, NetworkError.dataIsNil)
-                return
-            }
-
-            guard let decoded = try? JSONDecoder().decode(T.self, from: data) else {
-                completionHandler(nil, response, NetworkError.deserializationError)
-                return
-            }
-
-            completionHandler(decoded, response, nil)
+    lazy var imageFromService: (_ urlString: String, _ completion: @escaping ImageCallback) -> Void = { [weak self] (urlString: String, completion: @escaping ImageCallback) in
+        guard let self = self else {
+            return
         }
-    }
+        self.downaloadDataTask?.cancel()
+        guard var urlComponents = URLComponents(string: urlString) else {
+            return
+        }
+        guard let url = urlComponents.url else {
+            return
+        }
+        self.downaloadDataTask = self.defaultSession.imageTask(with: url) { [weak self] (image, error) in
+            defer {
+                self?.downaloadDataTask = nil
+            }
+            guard error == nil else {
+                completion(.failure(error: error))
+                return
+            }
 
-    func RedditListTask(with url: URL, completionHandler: @escaping (RedditRoot?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        return self.codableTask(with: url, completionHandler: completionHandler)
+            DispatchQueue.main.async {
+                completion(.success(image: image))
+            }
+        }
     }
 }
