@@ -28,7 +28,7 @@ struct RedditChild: Codable {
 
 // MARK: - ChildData
 struct RedditChildData: Codable {
-    let created: Int
+    let created: Double
     let author: String
     let title: String
     let createdUTC, ups, numComments: Int
