@@ -26,8 +26,7 @@ class RedditListView: UIView {
 
     private func setupView() {
         tableView.estimatedRowHeight = 88
-        tableView.rowHeight = UITableView.automaticDimension
-
+        tableView.rowHeight = 160
         tableView.separatorColor = .lightGray
         addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
