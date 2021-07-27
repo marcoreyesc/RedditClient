@@ -20,11 +20,14 @@ class RedditListView: UIView {
         return button
     }()
 
-    init (frame: CGRect, dataSource: UITableViewDataSource, refreshControl: UIRefreshControl) {
+    init (frame: CGRect, dataSource: UITableViewDataSource,
+          refreshControl: UIRefreshControl,
+          tableViewDelegate: UITableViewDelegate?) {
         tableView = UITableView()
         super.init(frame: frame)
         tableView.register(RedditItemCell.self, forCellReuseIdentifier: RedditItemCell.reuseID)
         tableView.dataSource = dataSource
+        tableView.delegate = tableViewDelegate
         tableView.refreshControl = refreshControl
         backgroundColor = .white
         setupView()

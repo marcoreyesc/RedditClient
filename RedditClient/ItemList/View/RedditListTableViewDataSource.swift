@@ -25,6 +25,10 @@ final class RedditListTableViewDataSource: NSObject, UITableViewDataSource {
         redditChildDataList.append(contentsOf: data)
     }
 
+    func getRedditRedditChildData(atRow row: Int) -> RedditChildData{
+        return redditChildDataList[row].data
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return redditChildDataList.count
     }
@@ -39,6 +43,7 @@ final class RedditListTableViewDataSource: NSObject, UITableViewDataSource {
                       url: redditChildDataList[indexPath.row].data.thumbnail,
                       inIndexPath: indexPath)
         cell.delegate = self
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
 
@@ -67,6 +72,7 @@ final class RedditListTableViewDataSource: NSObject, UITableViewDataSource {
     }
 }
 
+// TODO: - change delegate for a closure
 extension RedditListTableViewDataSource: RedditItemCellDelegate {
     func didPressDeleteButton(sender: RedditItemCell) {
         guard let indexPath = redditListView?.indexPathOfButton(sender.deleteButton) else {

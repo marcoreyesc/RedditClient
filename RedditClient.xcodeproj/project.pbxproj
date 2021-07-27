@@ -28,6 +28,8 @@
 		0CF4F4D226AF1334002D68B9 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4F4D126AF1334002D68B9 /* DateExtension.swift */; };
 		0CF4F4D626AF1A39002D68B9 /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4F4D526AF1A39002D68B9 /* URLSessionExtension.swift */; };
 		0CF4F4DA26AF1A8B002D68B9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4F4D926AF1A8B002D68B9 /* Result.swift */; };
+		0CF4F4E126AF703C002D68B9 /* RedditItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4F4E026AF703C002D68B9 /* RedditItemDetailView.swift */; };
+		0CF4F4E826AF7439002D68B9 /* RedditItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4F4E726AF7439002D68B9 /* RedditItemDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		0CF4F4D126AF1334002D68B9 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		0CF4F4D526AF1A39002D68B9 /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
 		0CF4F4D926AF1A8B002D68B9 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		0CF4F4E026AF703C002D68B9 /* RedditItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditItemDetailView.swift; sourceTree = "<group>"; };
+		0CF4F4E726AF7439002D68B9 /* RedditItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditItemDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,11 +111,11 @@
 		0C3361E026AC85AB00BD572A /* RedditClient */ = {
 			isa = PBXGroup;
 			children = (
-				0CF4F4BC26AE4876002D68B9 /* Extension */,
-				0CF4F4AD26ADADEA002D68B9 /* Controller */,
-				0CF4F4A026ADA31E002D68B9 /* View */,
+				0CF4F4DE26AF6FF6002D68B9 /* ItemDetail */,
+				0CF4F4DD26AF6FDA002D68B9 /* ItemList */,
 				0C33623826AC917A00BD572A /* Model */,
 				0C33623226AC8E9200BD572A /* Network */,
+				0CF4F4BC26AE4876002D68B9 /* Extension */,
 				0C3361E126AC85AB00BD572A /* AppDelegate.swift */,
 				0C3361E326AC85AB00BD572A /* SceneDelegate.swift */,
 				0C3361EA26AC85AF00BD572A /* Assets.xcassets */,
@@ -187,6 +191,40 @@
 				0CF4F4D526AF1A39002D68B9 /* URLSessionExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		0CF4F4DD26AF6FDA002D68B9 /* ItemList */ = {
+			isa = PBXGroup;
+			children = (
+				0CF4F4A026ADA31E002D68B9 /* View */,
+				0CF4F4AD26ADADEA002D68B9 /* Controller */,
+			);
+			path = ItemList;
+			sourceTree = "<group>";
+		};
+		0CF4F4DE26AF6FF6002D68B9 /* ItemDetail */ = {
+			isa = PBXGroup;
+			children = (
+				0CF4F4E626AF73D3002D68B9 /* Controller */,
+				0CF4F4DF26AF7014002D68B9 /* View */,
+			);
+			path = ItemDetail;
+			sourceTree = "<group>";
+		};
+		0CF4F4DF26AF7014002D68B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0CF4F4E026AF703C002D68B9 /* RedditItemDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0CF4F4E626AF73D3002D68B9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0CF4F4E726AF7439002D68B9 /* RedditItemDetailViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,9 +330,11 @@
 				0CF4F4C626AE5277002D68B9 /* ViewSpace.swift in Sources */,
 				0CF4F4AA26ADA661002D68B9 /* RedditItemCell.swift in Sources */,
 				0CF4F4B926AE1FC6002D68B9 /* Paginator.swift in Sources */,
+				0CF4F4E126AF703C002D68B9 /* RedditItemDetailView.swift in Sources */,
 				0CF4F4BE26AE488A002D68B9 /* UIView+anchors.swift in Sources */,
 				0CF4F4A626ADA3C1002D68B9 /* RedditListView.swift in Sources */,
 				0CF4F4C226AE5221002D68B9 /* FontSize.swift in Sources */,
+				0CF4F4E826AF7439002D68B9 /* RedditItemDetailViewController.swift in Sources */,
 				0CF4F4D626AF1A39002D68B9 /* URLSessionExtension.swift in Sources */,
 				0C3361E226AC85AB00BD572A /* AppDelegate.swift in Sources */,
 				0CF4F4B526ADBF88002D68B9 /* RedditListTableViewDataSource.swift in Sources */,
