@@ -12,6 +12,7 @@ final class RedditListTableViewDataSource: NSObject, UITableViewDataSource {
 
     var remoteDataSource = RedditDataSource()
     var viewedRows: Set<Int> = []
+    private var imageCache: [String: UIImage] = [:]
 
     var removingItem = false
     private var redditChildDataList: [RedditChild] = [] {
@@ -40,9 +41,14 @@ final class RedditListTableViewDataSource: NSObject, UITableViewDataSource {
         }
 
         cell.config(redditChildData: redditChildDataList[indexPath.row].data)
-        downLoadImage(tableView,
-                      url: redditChildDataList[indexPath.row].data.thumbnail,
-                      inIndexPath: indexPath)
+        let urlString = redditChildDataList[indexPath.row].data.thumbnail
+        if let image = imageCache[urlString] {
+            displayImage(tableView, image: image, indexPath: indexPath)
+        } else {
+            downLoadImage(tableView,
+                          url: urlString,
+                          inIndexPath: indexPath)
+        }
         cell.delegate = self
         cell.accessoryType = .disclosureIndicator
         cell.setState(viewed: viewedRows.contains(indexPath.row))
@@ -58,6 +64,7 @@ final class RedditListTableViewDataSource: NSObject, UITableViewDataSource {
             }
             switch result {
             case .success(let image):
+                self.imageCache[url] = image
                 self.displayImage(tableView, image: image, indexPath: indexPath)
             case .failure:
                 self.displayImage(tableView, image: UIImage.add, indexPath: indexPath)
