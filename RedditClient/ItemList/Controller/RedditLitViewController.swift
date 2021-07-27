@@ -36,6 +36,7 @@ final class RedditLitViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadRedditChildren()
     }
 
     override func loadView() {
@@ -60,7 +61,6 @@ final class RedditLitViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        loadRedditChildren()
     }
 
     @objc func didPull() {
