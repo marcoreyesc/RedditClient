@@ -75,6 +75,8 @@ extension RedditLitViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var thumbnailImage: UIImage? = nil
         if let cell = tableView.cellForRow(at: indexPath) as? RedditItemCell {
+            cell.setState(viewed: true)
+            redditListTableViewDataSource.viewedRows.insert(indexPath.row)
             thumbnailImage = cell.thumbnailView.image
         }
         let item = redditListTableViewDataSource.getRedditRedditChildData(atRow: indexPath.row)

@@ -11,6 +11,7 @@ final class RedditListTableViewDataSource: NSObject, UITableViewDataSource {
     weak var redditListView: RedditListView?
 
     var remoteDataSource = RedditDataSource()
+    var viewedRows: Set<Int> = []
 
     var removingItem = false
     private var redditChildDataList: [RedditChild] = [] {
@@ -44,6 +45,7 @@ final class RedditListTableViewDataSource: NSObject, UITableViewDataSource {
                       inIndexPath: indexPath)
         cell.delegate = self
         cell.accessoryType = .disclosureIndicator
+        cell.setState(viewed: viewedRows.contains(indexPath.row))
         return cell
     }
 
@@ -78,9 +80,14 @@ extension RedditListTableViewDataSource: RedditItemCellDelegate {
         guard let indexPath = redditListView?.indexPathOfButton(sender.deleteButton) else {
             return
         }
-        removingItem = true
-        redditChildDataList.remove(at: indexPath.row)
-        removingItem = false
+        removeData(atRow: indexPath.row)
         redditListView?.removeCell(ofButton: sender.deleteButton)
+    }
+
+    private func removeData(atRow row: Int){
+        removingItem = true
+        redditChildDataList.remove(at: row)
+        viewedRows.remove(row)
+        removingItem = false
     }
 }

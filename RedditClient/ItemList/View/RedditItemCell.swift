@@ -26,7 +26,7 @@ final class RedditItemCell: UITableViewCell {
         return UILabel.defaultLabel(size: FontSize.medium)
     }()
 
-    lazy var dotView: UIView = {
+    private lazy var dotView: UIView = {
         let dotView = UIView(frame: .zero)
         dotView.layer.cornerRadius = 5;
         dotView.layer.masksToBounds = true;
@@ -111,5 +111,12 @@ final class RedditItemCell: UITableViewCell {
         authorLabel.text = nil
         titleLabel.text = nil
         thumbnailView.image = nil
+    }
+
+    func setState(viewed: Bool) {
+        DispatchQueue.main.async {
+            self.dotView.alpha = viewed ? 0.0 : 1.0
+            self.dotView.transform = .identity
+        }
     }
 }
