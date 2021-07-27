@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         let splitViewController = UISplitViewController()
+        splitViewController.preferredDisplayMode = .oneOverSecondary
         splitViewController.viewControllers = [RedditLitViewController()]
         window?.rootViewController = splitViewController
         window?.makeKeyAndVisible()
